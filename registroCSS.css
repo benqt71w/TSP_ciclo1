@@ -1,0 +1,60 @@
+header[name="superior"]{
+	width: 99%;
+	height: 250px;
+	border: 1px solid transparent;
+	margin-top: 1%;
+	background:	url(Esquema\\sakura2.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+
+#registro{
+	float:left;
+	height: 80%;
+	width: 20%;
+	border: 1px solid transparent;
+	margin-top: 1px;
+	margin-left: 20%;
+	margin-right:20%;
+}
+
+fieldset {
+border:6px groove #ccc; /* Borde */
+background:#F8ECE0; /* Color de fondo */
+color:#000; /* Color del texto de todo el contenido */
+}
+
+legend {
+text-align:left;
+font-weight:bold; /* Estilo de la fuente del título */
+color:#61380B; /* Color del título */
+}
+
+aside[name="izquierdo"]{
+	float: left;
+	height: 1300px;
+	width: 15%;
+	border: 1px solid transparent;
+	margin-top: 3px;
+	background:	url(Esquema\\ubuntu1.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+
+aside[name="derecho"]{
+	float: left;
+	height: 1300px;
+	width: 15%;
+	border: 1px solid transparent;
+	margin-top: 3px;
+	background:	url(Esquema\\ubuntu2.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+
+footer[name="pie"]{
+	float: left;
+	width: 99%;
+	height: 250px;
+	border: 1px solid transparent;
+	margin-top: 1%;
+	background:	url(Esquema\\yuno_header.jpg) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
