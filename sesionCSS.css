@@ -1,0 +1,20 @@
+#login{
+	float:left;
+	height: 80%;
+	width: 25%;
+	border: 1px solid transparent;
+	margin-top: 1px;
+	margin-left: 5%;
+}
+
+fieldset {
+border:6px groove #ccc; /* Borde */
+background:#F8ECE0; /* Color de fondo */
+color:#000; /* Color del texto de todo el contenido */
+}
+
+legend {
+text-align:left; 
+font-weight:bold; /* Estilo de la fuente del título */
+color:#61380B; /* Color del título */
+}

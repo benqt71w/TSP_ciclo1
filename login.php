@@ -14,6 +14,7 @@
 		
 		if($numrows==0){
 			$message = "cedula de usuario ó contraseña invalida!";
+			header("Location: aplicacionlogin.php");
 		}
 		
 		$row=mysqli_fetch_assoc($query);

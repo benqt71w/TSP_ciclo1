@@ -13,8 +13,8 @@
 			<aside name="izquierdo"></aside>
 			
 			<?php
-				//session_start();				
-				$id_vj=$_POST["juegos"];				
+				session_start();				
+				$id_vj=$_GET["juegos"];				
 				//conexion: 
 				$link = mysqli_connect("localhost","root","","videojuegos") or die("Error " . mysqli_error($link));
 				//consulta: 
@@ -50,8 +50,13 @@
 								</header>
 								<footer name='datos_pie'>
 									<p>Precio: $precio_dia</p>
-									<input type='submit' name='vg".$id_vj."' value='Alquilar' />
-									<input type='submit' name='' value='Home Page' />
+									";if(isset($_SESSION['session_username'])){
+										echo "<input type='submit' name='vg".$id_vj."' value='Alquilar' />";
+									}
+									else{
+										echo "<p>Si Quieres Alquilar Debes <a href='registrar.php' >Registrarte</a>!</p>";
+									}
+									echo "<input type='submit' name='' value='Home Page' />
 									<p>Descripción: $descripcion</p>
 									<p>Categoria: $categoria</p>
 								</footer>
@@ -59,6 +64,9 @@
 						</section>
 						</form>
 						";
+					}
+					else{
+						header("location:aplicacion.php");
 					}
 			?>
 			<aside name="derecho"> </aside> 	

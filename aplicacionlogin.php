@@ -71,10 +71,8 @@
 					$i=1;
 					while($row = mysqli_fetch_array($result)) { 
 						echo "
-							<article name='vg".$i."' title='".$row["descripcion"]."    Stock:".$row["stock"]."'>							
-								<form action='vg_individual.php' method='post' > 
-									<input name='juegos' value='".$i."' src='".$row["imagen"]."' height=240px width=100% type='image' /> 
-								</form>
+							<article name='vg".$i."' title='".$row["descripcion"]."    Stock:".$row["stock"]."'>
+								<a href='vg_individual.php?juegos=$i'><img name='juegos' value='".$i."' src='".$row["imagen"]."' height=240px width=100% /></a>
 								Precio por Día:".$row["precio_dia"]."<br/>
 								Consola:".$row["consola"]."<br/>
 								<input name='vg".$i."' type='checkbox' value='vg".$i."' />".$row["nombre"]."

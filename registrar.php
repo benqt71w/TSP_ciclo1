@@ -34,9 +34,10 @@
 								<label for="telefono">Teléfono</label>
 								<input type="number" name="telefono" id="telefono" placeholder="5555555"  required="required"  min="1" maxlength="15" />
 							</li>
+							<p></p>
 							<input type="submit" name="registrar" value="Registrar" />
 							<input type="reset" name="reiniciar" value="Reiniciar">
-							<a href='aplicacion.php'>Regresar</a>
+							<a href='aplicacion.php'><p>Home Page</p></a>
 						</ul>
 					</fieldset>		
 				</div>				
