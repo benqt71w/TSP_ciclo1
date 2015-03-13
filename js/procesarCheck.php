@@ -14,7 +14,7 @@
 						$arreglo=$_SESSION['Carrito'];
 						$encontro=false;
 						$numero=0;
-						for ($a=0; $a <=count($arreglo) ; $a++) { 
+						for ($a=0; $a <count($arreglo) ; $a++) { 
 							if($arreglo[$a]['Id']==$_POST["vg".($i).""]){
 
 								$encontro=true;
@@ -85,14 +85,15 @@
 					}
 
 				}
+				$fecha_inicio=date('Y-m-j');
 				$update = "UPDATE videogame set stock='".(($row["stock"])-1)."' WHERE nombre='".$row["nombre"]."'";
 				mysqli_query($cone, $update) or die("La actualización falló: " . mysqli_error($cone));
-				$insert_prestamo = "INSERT INTO prestamo (id_cliente, id_videojuego) VALUES('".$_SESSION['session_cedula']."', '".$row["id_vj"]."')";
+				$insert_prestamo = "INSERT INTO prestamo (id_cliente, id_videojuego,fecha) VALUES('".$_SESSION['session_cedula']."', '".$row["id_vj"]."','$fecha_inicio')";
 				mysqli_query($cone, $insert_prestamo) or die("La inserción de prestamo falló: " . mysqli_error($link));
 			}
 		$i++;
 		}
 	}
 	
-	header("Location:http://localhost/TSP_ciclo1/carrito.php");
+	header("Location:http://localhost/dw/TSP/TSP_ciclo1/carrito.php");
 ?>

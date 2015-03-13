@@ -62,6 +62,7 @@
 						$i++;
 					}
 					echo " <li><a href='aplicacionlogin.php' method='post' name=categoria value='' >VISTA GENERAL</a> </li>";
+					echo " <li><a href='juegosdestacados.php' method='post' name=categoria value='' >JUEGOS DESTACADOS</a> </li>";
 					echo " <li><a href='carrito.php' method='post' name=carrito value='' >VER CARRITO</a> </li>";
 					echo "</ul>";
 				?>				
