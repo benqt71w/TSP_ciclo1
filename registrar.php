@@ -39,13 +39,17 @@
 								<label for="telefono">Teléfono</label>
 								<input type="number" name="telefono" id="telefono" placeholder="5555555"  required="required"  min="1" maxlength="15" />
 							</li>
+<<<<<<< HEAD
 							<li>
 								<label for="ima">Imagen</label>
 								<input type="file" name="imagen" id="imagen"/>
 							</li>
+=======
+							<p></p>
+>>>>>>> b17b2af9e1ef0675bd514fd0e61c58c87202eb26
 							<input type="submit" name="registrar" value="Registrar" />
 							<input type="reset" name="reiniciar" value="Reiniciar">
-							<a href='aplicacion.php'>Regresar</a>
+							<a href='aplicacion.php'><p>Home Page</p></a>
 						</ul>
 					</fieldset>		
 				</div>				

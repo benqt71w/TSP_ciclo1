@@ -8,7 +8,7 @@
 	</head>
 
 	<body>
-		<form method="post" action="procesar.php" autocomplete="on">
+		<form method="post" action="js/procesarCheck.php" autocomplete="on">
 			<header name="superior" title="Ikaros - Anime: Sora no Otoshimono">
 				<div id="login">		
 					<fieldset>
@@ -30,7 +30,7 @@
 								<h2>Bienvenido/a, <span><?php echo $_SESSION['session_username'];?>! </span></h2>
 								<?php echo "<img id='imagen' src='imagenes/".$row["imagen"]."' height='25%' width='25%' type='image'/>";?>
 								</br/>
-								<input type="submit" name="apartar" value="Apartar" href="procesar.php">
+								<input type="submit" name="apartar" value="Añadir Al Carrito De Compras" href="js/procesarCheck.php">
 								<p><a href="perfil.php">Perfil</a><?php echo " &#32";?><a href="logout.php">Cerrar Sesión</a></p>
 								</div>
 								<?php
@@ -62,6 +62,7 @@
 						$i++;
 					}
 					echo " <li><a href='aplicacionlogin.php' method='post' name=categoria value='' >VISTA GENERAL</a> </li>";
+					echo " <li><a href='carrito.php' method='post' name=carrito value='' >VER CARRITO</a> </li>";
 					echo "</ul>";
 				?>				
 			</aside>
@@ -78,13 +79,11 @@
 					$i=1;
 					while($row = mysqli_fetch_array($result)) { 
 						echo "
-							<article name='vg".$i."' title='".$row["descripcion"]."    Stock:".$row["stock"]."'>							
-								<form action='vg_individual.php' method='post' > 
-									<input name='juegos' value='".$i."' src='".$row["imagen"]."' height=240px width=100% type='image' /> 
-								</form>
+							<article name='vg".$i."' title='".$row["descripcion"]."    Stock:".$row["stock"]."'>
+								<a href='vg_individual.php?juegos=$i'><img name='juegos' value='".$i."' src='".$row["imagen"]."' height=240px width=100% /></a>
 								Precio por Día:".$row["precio_dia"]."<br/>
 								Consola:".$row["consola"]."<br/>
-								<input name='vg".$i."' type='checkbox' value='vg".$i."' />".$row["nombre"]."
+								<input name='vg".$i."' type='checkbox' value=".$i." />".$row["nombre"]."
 							</article>  ";
 						$i++;
 					}	 	

@@ -1,5 +1,6 @@
 <?php
 	session_start();
+
 	//conexion: 
 	$link = mysqli_connect("localhost","root","","videojuegos") or die("Error en la conexion. " . mysqli_error($link)); 
 	//consulta: 
