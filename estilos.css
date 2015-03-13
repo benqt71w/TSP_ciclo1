@@ -16,6 +16,11 @@ header[name="superior"]{
 	margin-left: 5%;
 }
 
+#imagen{
+	border-radius: 150px;
+	border: 50px;
+}
+
 fieldset {
 border:6px groove #ccc; /* Borde */
 background:#F8ECE0; /* Color de fondo */

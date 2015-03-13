@@ -20,11 +20,18 @@
 								header("location:aplicacion.php");
 							} 
 							else {
+								$user=$_SESSION['session_username'];
+								$link = mysqli_connect("localhost","root","","videojuegos") or die("Error " . mysqli_error($link));
+								$consulta = "SELECT imagen FROM cliente WHERE nombre='$user'" or die("Error en la consulta" . mysqli_error($link));
+								$result = mysqli_query($link, $consulta) or die("La consulta falló: " . mysqli_error($link));
+								$row = mysqli_fetch_array($result);
 						?>
 								<div id="bienvenido">
 								<h2>Bienvenido/a, <span><?php echo $_SESSION['session_username'];?>! </span></h2>
+								<?php echo "<img id='imagen' src='imagenes/".$row["imagen"]."' height='25%' width='25%' type='image'/>";?>
+								</br/>
 								<input type="submit" name="apartar" value="Apartar" href="procesar.php">
-								<p><a href="logout.php">Cerrar Sesión</a></p>
+								<p><a href="perfil.php">Perfil</a><?php echo " &#32";?><a href="logout.php">Cerrar Sesión</a></p>
 								</div>
 								<?php
 							}

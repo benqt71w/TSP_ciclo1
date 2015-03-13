@@ -13,7 +13,7 @@
 			<aside name="izquierdo"></aside>
 		
 			<section> 			
-			<form method="post" action="registroSQL.php" autocomplete="on">			
+			<form method="post" action="registroSQL.php" autocomplete="on" enctype="multipart/form-data">			
 				<div id="registro">		
 					<fieldset>
 						<legend>Datos de Contacto</legend>
@@ -26,6 +26,11 @@
 								<label for="cedula">Cedula</label>
 								<input type="number" name="cedula" id="cedula" placeholder="1111111" required="required"  min="1" maxlength="15" />
 							</li>
+
+							<li>
+								<label for="correo">Correo</label>
+								<input type="text" name="correo" id="correo" placeholder="example@servidor.com"  required="required"  min="1" maxlength="30" />
+							</li>							
 							<li>
 								<label for="pass">Password</label>
 								<input type="password" name="pass" id="pass" placeholder="****"  required="required"  min="6" maxlength="15" />
@@ -33,6 +38,10 @@
 							<li>
 								<label for="telefono">Teléfono</label>
 								<input type="number" name="telefono" id="telefono" placeholder="5555555"  required="required"  min="1" maxlength="15" />
+							</li>
+							<li>
+								<label for="ima">Imagen</label>
+								<input type="file" name="imagen" id="imagen"/>
 							</li>
 							<input type="submit" name="registrar" value="Registrar" />
 							<input type="reset" name="reiniciar" value="Reiniciar">

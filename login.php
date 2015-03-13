@@ -25,6 +25,5 @@
 			$_SESSION['session_cedula']=$cedula;
 			header("Location: aplicacionlogin.php");
 		}
-		
 	}
 ?>
