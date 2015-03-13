@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-03-2015 a las 05:05:50
+-- Tiempo de generación: 13-03-2015 a las 08:00:04
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.5.19
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `videojuegos`
 --
-CREATE DATABASE IF NOT EXISTS `videojuegos` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `videojuegos`;
 
 -- --------------------------------------------------------
 
@@ -28,7 +26,6 @@ USE `videojuegos`;
 -- Estructura de tabla para la tabla `categoria`
 --
 
-DROP TABLE IF EXISTS `categoria`;
 CREATE TABLE IF NOT EXISTS `categoria` (
 `id_categoria` int(20) NOT NULL,
   `nombre` varchar(30) NOT NULL
@@ -56,7 +53,6 @@ INSERT INTO `categoria` (`id_categoria`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `cliente`
 --
 
-DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE IF NOT EXISTS `cliente` (
   `cedula` bigint(20) NOT NULL,
   `nombre` text CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
@@ -74,6 +70,7 @@ INSERT INTO `cliente` (`cedula`, `nombre`, `telefono`, `password`, `imagen`, `Co
 (123, 'sebastian mejia', 123, '123', 'galaxy_universe-normal.jpg', 'sebastianmejia'),
 (40390667, 'amanda', 385141525, 'yerson', '', ''),
 (90909090, 'Andres Felipe', 9090, 'pipe', '', ''),
+(1122652365, 'Jefferson Roa', 3005226895, 'jeffer', '10420109_10204818688736424_549708154264783481_n.jpg', 'jefferson.roa@unillanos.edu.co'),
 (1234560987, 'golosa24', 556556, '0000', '', ''),
 (987654321987654321, 'Ottorinolaringologo', 12312312345, 'yerferfull', '', '');
 
@@ -83,34 +80,19 @@ INSERT INTO `cliente` (`cedula`, `nombre`, `telefono`, `password`, `imagen`, `Co
 -- Estructura de tabla para la tabla `prestamo`
 --
 
-DROP TABLE IF EXISTS `prestamo`;
 CREATE TABLE IF NOT EXISTS `prestamo` (
 `id_prestamo` bigint(20) unsigned NOT NULL,
   `id_videojuego` int(11) NOT NULL,
-  `id_cliente` bigint(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+  `id_cliente` bigint(20) NOT NULL,
+  `fecha` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `prestamo`
 --
 
-INSERT INTO `prestamo` (`id_prestamo`, `id_videojuego`, `id_cliente`) VALUES
-(1, 1, 987654321987654321),
-(4, 1, 987654321987654321),
-(5, 1, 987654321987654321),
-(3, 2, 90909090),
-(6, 2, 987654321987654321),
-(15, 3, 1234560987),
-(13, 6, 40390667),
-(7, 13, 40390667),
-(8, 13, 40390667),
-(9, 13, 40390667),
-(10, 13, 40390667),
-(11, 13, 40390667),
-(14, 13, 40390667),
-(16, 14, 1234560987),
-(2, 16, 987654321987654321),
-(12, 16, 40390667);
+INSERT INTO `prestamo` (`id_prestamo`, `id_videojuego`, `id_cliente`, `fecha`) VALUES
+(39, 1, 123, '2015-03-13');
 
 -- --------------------------------------------------------
 
@@ -118,7 +100,6 @@ INSERT INTO `prestamo` (`id_prestamo`, `id_videojuego`, `id_cliente`) VALUES
 -- Estructura de tabla para la tabla `videogame`
 --
 
-DROP TABLE IF EXISTS `videogame`;
 CREATE TABLE IF NOT EXISTS `videogame` (
   `id_vj` int(11) NOT NULL,
   `nombre` text NOT NULL,
@@ -136,9 +117,9 @@ CREATE TABLE IF NOT EXISTS `videogame` (
 --
 
 INSERT INTO `videogame` (`id_vj`, `nombre`, `descripcion`, `precio_dia`, `consola`, `stock`, `imagen`, `video`, `id_categoria`) VALUES
-(1, 'Batman', 'Videojuego de accion', 6000, 'PS4', 17, 'Covers\\\\batman_ps4.jpg', 'L63rDlpJ3_o', 1),
-(2, 'Crysis', 'videojuego de ciencia ficcion', 4000, 'PC', 18, 'Covers\\\\crysis_pc.jpg', 'IFz2evkDvxk', 2),
-(3, 'Assassins Creed 2', 'videojuego de ciencia ficcion', 7500, 'X-BOX_360', 19, 'Covers\\\\assassinscreed2_360.jpg', 'LGC88YwrfkM', 1),
+(1, 'Batman', 'Videojuego de accion', 6000, 'PS4', 4, 'Covers\\\\batman_ps4.jpg', 'L63rDlpJ3_o', 1),
+(2, 'Crysis', 'videojuego de ciencia ficcion', 4000, 'PC', 11, 'Covers\\\\crysis_pc.jpg', 'IFz2evkDvxk', 2),
+(3, 'Assassins Creed 2', 'videojuego de ciencia ficcion', 7500, 'X-BOX_360', 15, 'Covers\\\\assassinscreed2_360.jpg', 'LGC88YwrfkM', 1),
 (4, 'Call of Duty: Black Ops 2', 'Video juego de guerra', 6500, 'X-Box_360', 20, 'Covers\\\\callofdutybo2_360.jpg', 'kqOjoYRgnHs', 10),
 (5, 'DBZ: Kinnect', 'Video juego de pelea', 10000, 'X-Box_360', 20, 'Covers\\\\dbzkinnect_360.jpg', 'b-bmimZ-0ss', 6),
 (6, 'Fallout 3', 'Video juego de ciencia ficcion', 8000, 'PC', 19, 'Covers\\\\fallout3_pc.jpg', 'FUhCzMZO1Vk', 2),
@@ -194,7 +175,7 @@ MODIFY `id_categoria` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 -- AUTO_INCREMENT de la tabla `prestamo`
 --
 ALTER TABLE `prestamo`
-MODIFY `id_prestamo` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+MODIFY `id_prestamo` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
 --
 -- Restricciones para tablas volcadas
 --

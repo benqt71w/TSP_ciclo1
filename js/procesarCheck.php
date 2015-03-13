@@ -14,7 +14,7 @@
 						$arreglo=$_SESSION['Carrito'];
 						$encontro=false;
 						$numero=0;
-						for ($a=0; $a <=count($arreglo) ; $a++) { 
+						for ($a=0; $a <count($arreglo) ; $a++) { 
 							if($arreglo[$a]['Id']==$_POST["vg".($i).""]){
 
 								$encontro=true;
@@ -95,5 +95,5 @@
 		}
 	}
 	
-	header("Location:http://localhost/TSP_ciclo1/carrito.php");
+	header("Location:http://localhost/dw/TSP/TSP_ciclo1/carrito.php");
 ?>
